@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="class_detail">
+    <h1>Class Detail</h1>
+    <p><b>{{ my_class.name }}</b></p>
+    <img src="{{ my_class.profile.url }}" alt="Image" width="500px" height="300px" class="imgprofile">
+    <p>Syllabus: <a href="http://127.0.0.1:8000/media/{{ my_class.syllabus }}">Download</a></p>
+    <p>Starting Date & Time: {{ my_class.date }},{{my_class.time}}</p>
+    <p>Teacher Assign: {{ my_class.Teacher }}</p>
+    <p>Duration: {{ my_class.duration }}</p>
+    <!-- <button id="addStudentButton" type="submit">Add Student</button> -->
+       <!-- Add Student Form -->
+    
+    <form method="post" action="{% url 'class_detail' pk=my_class.id %}" id="addStudentForm" class="hidden">
+        <h1>Add Student</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    <!-- Display existing students -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.contact_number }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.address }}</td>
+
+                <td>
+                    <form action="{% url 'delete_student' student.id %}" method="post">
+                      {% csrf_token %}
+                      <button id="delete" type="submit">Delete</button>
+                    </form>
+                  </td>
+                  <td>
+                    <input type="checkbox" name="attendance_{{ student.id }}" {% if student.attendance == 'Present' %} checked {% endif %}> Present
+                  </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+ 
+    
+    
+</div>
+<script>
+   document.getElementById('addStudentButton').addEventListener('click', function(){
+        var form = document.getElementById('addStudentForm');
+        console.log(form);
+   });
+</script>
+{% endblock %}
+
+    

@@ -1,0 +1,282 @@
+body {
+    margin: 0;
+    /* font-family: Arial, sans-serif; */
+}
+nav {
+    background-color: ghostwhite;
+    color: black;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+}
+.logo p{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img {
+    height: 50px;
+}
+.nav-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.nav-links ul li {
+    display: inline;
+    margin-right: 20px;
+}
+.nav-links ul li a {
+    color: black;
+    text-decoration: none;
+}
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.footer {
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer h3 {
+    color: white;
+}
+
+.footer p {
+    color: #ccc;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    color: white;
+}
+.bottom-footer {
+    text-align: center;
+}
+.social-icons {
+    color: blue;
+}
+/* .signup{
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    width: fit-content;
+    border: 1px solid blue;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+} */
+#signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: ghostwhite;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid blue;
+    border-radius: 15px;
+    
+}
+#signup button{
+    background-color: lightseagreen;
+    color: black;
+    width: 300px;
+    height: 20px;
+    border: 1px solid lightseagreen;
+    border-radius: 5px;
+}
+#signup_container{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    
+}
+#signup_container .logo p{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    font-style: bold;
+    font-size: 40px;
+}
+.logo img {
+    height: 50px;
+}
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+} */
+
+/* Form styles */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Dashboard styles */
+/* .dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+} */
+h2{
+    display: flex;
+    justify-content: flex-start;
+}
+.add{
+    background-color: #007bff;
+    color: black;
+    border: 1px #007bff;
+    font-size: 15px;
+    height: 30px;
+    margin-left: 20px;
+
+}
+.card {
+    background-color: rgb(229, 231, 230);
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 0 calc(33.33% - 20px);
+    border: 2px solid rgb(237, 239, 240);
+    width: 100px;
+    margin-right: 20px;
+}
+
+.card h3 {
+    /* margin-top: 0; */
+    color: #333;
+}
+
+.card p {
+    /* margin-bottom: 0; */
+    color: black;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+.cardbutton{
+    background-color: skyblue;
+    color: black;
+    border: 1px skyblue;
+    height: 20px;
+
+}
+.classes{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 20px;
+    width: fit-content;
+}
+.class_detail{
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    /* width: fit-content; */
+    padding: 10px;
+}
+.class_detail img{
+    border: 1px solid black;
+}
+.class_detail h1{
+    font-family: 'Times New Roman', Times, serif;
+    color: #0056b3  ;
+}
+/* #addStudentForm{
+    display: none;
+} */
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: large;
+    margin-left: 20px;
+}
+th, td {
+    border: 1px solid black; /* Add borders to both th and td */
+    text-align: left;
+    padding: 8px;
+  }
+#delete{
+    background-color: red;
+}
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h2> Available Classes</h2>
+    <a href="{% url 'create_class' %}"><button class="add">Add Class</button></a>
+    <div class="classes">
+        {% for myclass in classes %}
+        <div class="card">
+            <img src="{{ myclass.profile.url }}" alt="Image" width="100px" height="100px" class="imgprofile">
+            <p>{{ myclass.name }}</p>
+            <a href="{% url 'class_detail' pk=myclass.pk %}"><button class="cardbutton">Details</button></a>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endblock %}

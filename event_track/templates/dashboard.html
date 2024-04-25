@@ -1,0 +1,100 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+     <!-- Dashboard content here -->
+    
+    <h1>Welcome to Dashboard </h1>
+    <table>
+        <thead>
+                <tr>
+                    <th>Class Name</th>
+                    <th>Starting Date</th>
+                    <th>Status</th>
+                    <th>Teacher Assign</th>
+                    <th>Action</th>
+                    <th></th>
+                    
+                </tr>
+        </thead>
+            <tbody>
+                {% for myclass in classes %}
+                <tr>
+                    <td>{{ myclass.name }}</td>
+                    <td>{{ myclass.date }}, {{ myclass.time }}</td>
+                    <td>{{ myclass.status }}</td>
+                    <td>{{ myclass.Teacher }}</td>
+                    <td>
+                        <a href="{% url 'send_email' %}" class="btn_sendEmail">Send email</a>
+                    </td>
+                    <td>
+                        <form method="post">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                            <a href="{% url 'dashboard' %}">Cancel</a>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+    </table>
+    <h2> Available Teacher</h2>
+    <a href="{% url 'add_teacher' %}"><button class="add"> Add Teacher</button></a>
+    <table>
+        <thead>
+                <tr>
+                    <th>Teacher Name</th>
+                    <th>contact number</th>
+                    <th>Action</th>
+                    
+                </tr>
+        </thead>
+            <tbody>
+                {% for teacher in teachers %}
+                <tr>
+                    <td>{{ teacher.name }}</td>
+                    <td>{{ teacher.contact_number }}</td>
+                    <td>
+                        <form action="{% url 'delete_teacher' teacher.pk %}" method="post">
+                          {% csrf_token %}
+                          <button type="submit">Delete</button>
+                        </form>
+                      </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+    </table>
+    
+    
+   
+  
+   <script>
+    $(document).ready(function() {
+        $('.delete-class').click(function() {
+            var classId = $(this).data('class-id');
+            $.ajax({
+                url: '/class/' + classId + '/delete/',
+                type: 'POST',
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Reload the page or update the table
+                        location.reload();
+                    } else {
+                        alert('Failed to delete class: ' + response.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert('Failed to delete class: ' + error);
+                }
+            });
+        });
+    });
+   </script>
+{% endblock %}

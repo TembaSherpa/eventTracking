@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+   
+    <nav>
+        <div class="logo">
+            <p><a href="{% url 'dashboard' %}"><img src="{% static 'event.jpg' %}" alt="Site Logo"></a>Event Tracking</p>
+           
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="">Profile</a></li>
+                <li><a href="{% url 'homepage' %}">Homepage</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'logout' %}"><button>Logout</button></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock content %}
+    <!-- <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>About Us</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. Suspendisse cursus malesuada facilisis.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Contact Information</h3>
+                    <p>Address: 123 Main Street, City, Country</p>
+                    <p>Phone: +1234567890</p>
+                    <p>Email: info@example.com</p>
+                </div>
+            </div>
+            <div class="bottom-footer" >
+                <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            </div>
+        </div> 
+    </footer> -->
+</body>
+</html>

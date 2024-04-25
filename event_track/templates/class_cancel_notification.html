@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>Class Cancellation Notification</h1>
+    <p>Dear Student,</p>
+    <p>We regret to inform you that the class "{{ myclass.name }}" scheduled for {{ myclass.date }} at {{ myclass.time }} has been canceled.</p>
+    <p>Thank you.</p>
+
+{% endblock %}

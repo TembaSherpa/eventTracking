@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div id="signup_container">
+    <div class="logo">
+        <p><a href="{% url 'dashboard' %}"><img src="{% static 'event.jpg' %}" alt="Site Logo"></a>Event Tracking</p>
+    </div>
+<div id="signup">
+    <h2>Login</h2>
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+</div>
+
+
+{% endblock %}
